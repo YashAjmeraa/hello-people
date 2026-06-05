@@ -25,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
@@ -45,7 +45,7 @@
       letter-spacing: -0.5px;
     }
 
-    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
 
     nav a {
       text-decoration: none;
@@ -58,7 +58,10 @@
 
     nav a:hover { color: var(--navy); }
 
-    /* HERO */
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+    /* ── HERO ── */
     .hero {
       background: var(--navy);
       padding: 7rem 4rem 6rem;
@@ -69,7 +72,7 @@
     .hero-tag {
       display: inline-block;
       border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.65);
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -80,25 +83,25 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
       line-height: 1.06;
       letter-spacing: -2px;
       color: var(--white);
       margin-bottom: 1.5rem;
     }
 
-    h1 span { color: rgba(255,255,255,0.45); }
+    h1 span { color: rgba(255,255,255,0.55); }
 
     .hero-desc {
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.72);
       line-height: 1.8;
-      max-width: 540px;
+      max-width: 560px;
       font-weight: 300;
       margin-bottom: 2.5rem;
     }
 
-    .btn-group { display: flex; gap: 1rem; }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     .btn {
       display: inline-block;
@@ -113,11 +116,79 @@
 
     .btn-primary { background: var(--white); color: var(--navy); border: 1px solid var(--white); }
     .btn-primary:hover { background: transparent; color: var(--white); }
-
-    .btn-outline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.25); }
+    .btn-outline { background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.3); }
     .btn-outline:hover { border-color: var(--white); color: var(--white); }
 
-    /* SECTIONS */
+    /* ── PROGRESS STRIP ── */
+    .progress-strip {
+      background: var(--light);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 4rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .progress-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .progress-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+
+    .progress-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .progress-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--line);
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .progress-bar-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .progress-bar-track {
+      height: 4px;
+      background: var(--line);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 10.5%; /* 2 of 19 — project 03 is the site itself */
+      background: var(--navy);
+      border-radius: 2px;
+    }
+
+    .progress-updated {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    /* ── SECTIONS ── */
     section {
       padding: 5rem 4rem;
       max-width: 1100px;
@@ -140,36 +211,7 @@
       margin-bottom: 3rem;
     }
 
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      border: 1px solid var(--line);
-    }
-
-    .skill-item {
-      padding: 1.5rem;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background 0.2s, color 0.2s;
-      cursor: default;
-    }
-
-    .skill-item:hover {
-      background: var(--navy);
-    }
-
-    .skill-item:hover .skill-icon,
-    .skill-item:hover .skill-name,
-    .skill-item:hover .skill-level {
-      color: var(--white);
-    }
-
-    .skill-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
-    .skill-name { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; transition: color 0.2s; }
-    .skill-level { font-size: 0.72rem; color: var(--muted); transition: color 0.2s; }
-
-    /* FILTER */
+    /* ── PROJECTS ── */
     .filter-bar { display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
 
     .filter-btn {
@@ -185,14 +227,12 @@
       letter-spacing: 0.02em;
     }
 
-    .filter-btn:hover,
-    .filter-btn.active {
+    .filter-btn:hover, .filter-btn.active {
       border-color: var(--navy);
       color: var(--navy);
       background: var(--light);
     }
 
-    /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -206,9 +246,16 @@
       transition: border-color 0.2s;
       display: flex;
       flex-direction: column;
+      border-left: 4px solid transparent;
+    }
+
+    /* Completed card — navy left border */
+    .project-card.completed {
+      border-left: 4px solid var(--navy);
     }
 
     .project-card:hover { border-color: var(--slate); }
+    .project-card.completed:hover { border-left-color: var(--navy); }
     .project-card.hidden { display: none; }
 
     .project-num {
@@ -218,18 +265,25 @@
       margin-bottom: 0.4rem;
     }
 
+    /* Tier badges — subtle left-border tint per tier */
     .tier-badge {
       display: inline-block;
       font-size: 0.62rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.18rem 0.55rem;
+      padding: 0.18rem 0.55rem 0.18rem 0.7rem;
       border-radius: 4px;
       margin-bottom: 0.85rem;
       font-weight: 500;
       border: 1px solid var(--line);
       color: var(--muted);
+      border-left-width: 3px;
     }
+
+    .tier-starter { border-left-color: #6aacf0; }
+    .tier-builder { border-left-color: #e8a84a; }
+    .tier-power   { border-left-color: #5aab7a; }
+    .tier-pro     { border-left-color: #9b6de0; }
 
     .project-title {
       font-family: 'Playfair Display', serif;
@@ -274,93 +328,129 @@
       transition: all 0.2s;
     }
 
-    .view-output:hover {
-      background: var(--navy);
-      color: var(--white);
-    }
+    .view-output:hover { background: var(--navy); color: var(--white); }
 
-    .coming-soon {
-      font-size: 0.75rem;
+    .in-progress {
+      font-size: 0.72rem;
       color: var(--muted);
       font-style: italic;
     }
 
-    /* CONTACT */
-    .contact-wrap {
-      background: var(--light);
+    /* ── SKILLS (moved below projects) ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 3.5rem;
+    }
+
+    .skill-item {
+      padding: 1.5rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s, color 0.2s;
+      cursor: default;
+    }
+
+    .skill-item:hover { background: var(--navy); }
+
+    .skill-item:hover .skill-icon,
+    .skill-item:hover .skill-name,
+    .skill-item:hover .skill-level { color: var(--white); }
+
+    .skill-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
+    .skill-name { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; transition: color 0.2s; }
+    .skill-level { font-size: 0.72rem; color: var(--muted); transition: color 0.2s; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--navy);
+      padding: 5rem 4rem;
       text-align: center;
     }
 
-    .contact-wrap h3 {
+    .contact-section h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--navy);
+      font-size: 2.2rem;
+      color: var(--white);
       margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
     }
 
-    .contact-wrap p { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .contact-section p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2.25rem;
+      font-size: 0.975rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
 
     .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
     .contact-link {
       text-decoration: none;
-      color: var(--slate);
+      color: rgba(255,255,255,0.75);
       font-size: 0.875rem;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,0.2);
       padding: 0.55rem 1.1rem;
       border-radius: 4px;
-      background: var(--white);
       transition: all 0.2s;
     }
 
-    .contact-link:hover { border-color: var(--navy); color: var(--navy); }
+    .contact-link:hover { border-color: var(--white); color: var(--white); }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 2rem 4rem;
+      padding: 1.5rem 4rem;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       background: var(--white);
     }
 
     footer span { color: var(--navy); font-weight: 500; }
 
-    /* RESPONSIVE */
+    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       nav { padding: 1rem 1.5rem; }
-      nav ul { gap: 1.2rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .hero { padding: 4rem 1.5rem 3.5rem; }
+      .progress-strip { padding: 1rem 1.5rem; gap: 1.25rem; }
+      .progress-updated { display: none; }
       section { padding: 3rem 1.5rem; }
-      footer { padding: 2rem 1.5rem; }
+      .contact-section { padding: 3.5rem 1.5rem; }
+      footer { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <div class="logo">Yash Ajmera.</div>
-    <ul>
+    <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="nav-hamburger" onclick="this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
   <!-- HERO -->
   <div class="hero" id="about">
     <div class="hero-inner">
-      <div class="hero-tag">✦ AI Upskilling Portfolio</div>
+      <div class="hero-tag">✦ Applied AI · 19 Projects · Built in Real Time</div>
       <h1>Ex-BCG. Ex-HighRadius.<br/><span>Now building at IIM Ahmedabad.</span></h1>
       <p class="hero-desc">
-        Strategy consultant turned B2B SaaS operator, now an MBA student at IIM Ahmedabad.
-        This portfolio documents a 20-project AI upskilling journey — spanning automation,
-        GTM pipelines, intelligent tools, and full-stack deployments. Built in real time, one project at a time.
+        Former BCG consultant and HighRadius operator, now an MBA student at IIM Ahmedabad (PGP 2026–28).
+        This is a live record of 19 AI tools built from scratch — automation pipelines, GTM systems,
+        and intelligent workflows. Shipped one project at a time, with every output documented here.
       </p>
       <div class="btn-group">
         <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -369,10 +459,321 @@
     </div>
   </div>
 
-  <!-- SKILLS -->
+  <!-- PROGRESS STRIP -->
+  <div class="progress-strip">
+    <div class="progress-stat">
+      <span class="progress-num">2</span>
+      <span class="progress-label">projects completed</span>
+    </div>
+    <div class="progress-divider"></div>
+    <div class="progress-stat">
+      <span class="progress-num">19</span>
+      <span class="progress-label">total projects</span>
+    </div>
+    <div class="progress-divider"></div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-label">Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill"></div>
+      </div>
+    </div>
+    <div class="progress-updated">Last updated · June 2026</div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">What I've built</div>
+    <h2>AI Projects</h2>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('starter', this)">Starter</button>
+      <button class="filter-btn" onclick="filterProjects('builder', this)">Builder</button>
+      <button class="filter-btn" onclick="filterProjects('power', this)">Power User</button>
+      <button class="filter-btn" onclick="filterProjects('pro', this)">Pro</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card completed" data-tier="starter">
+        <div class="project-num">02 —</div>
+        <span class="tier-badge tier-starter">Starter</span>
+        <div class="project-title">Morning Briefing Bot</div>
+        <p class="project-desc">Connected Claude to Gmail and Google Calendar via MCP to auto-generate a daily action plan — priority emails with suggested replies, meeting prep notes, and ranked tasks. On 4 June, it surfaced a hard Moodle deadline, a math class on functions, and a Google account security breach — all flagged before 8 AM. Saves 30–45 minutes every morning.</p>
+        <div>
+          <span class="tag">Claude MCP</span>
+          <span class="tag">Gmail</span>
+          <span class="tag">Google Calendar</span>
+          <span class="tag">Prompt Design</span>
+        </div>
+        <div class="card-footer">
+          <a href="morning_briefing_june4.pdf" target="_blank" class="view-output">↗ View Output — 4 Jun 2026</a>
+        </div>
+      </div>
+
+      <div class="project-card completed" data-tier="starter">
+        <div class="project-num">03 —</div>
+        <span class="tier-badge tier-starter">Starter</span>
+        <div class="project-title">Personal Website</div>
+        <p class="project-desc">Used Claude Code to design and build this site — zero manual coding. Prompted the full layout, iterated the design, and deployed via GitHub and Vercel. What you're looking at is the output: a live, recruiter-facing portfolio built without writing a single line of code by hand.</p>
+        <div>
+          <span class="tag">Claude Code</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/YashAjmeraa/hello-people" target="_blank" class="view-output">↗ View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-tier="starter">
+        <div class="project-num">04 —</div>
+        <span class="tier-badge tier-starter">Starter</span>
+        <div class="project-title">MBA Case Study Analyst</div>
+        <p class="project-desc">Built a Claude Project that uploads any HBS or ISB case PDF and returns a structured analysis in under 2 minutes: problem statement, stakeholder map, three strategic options with pros/cons, quantitative breakdown, and a final recommendation — formatted exactly as professors expect.</p>
+        <div>
+          <span class="tag">Claude Projects</span>
+          <span class="tag">PDF Upload</span>
+          <span class="tag">Consulting Frameworks</span>
+          <span class="tag">MECE</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="starter">
+        <div class="project-num">05 —</div>
+        <span class="tier-badge tier-starter">Starter</span>
+        <div class="project-title">Email Drafting Assistant</div>
+        <p class="project-desc">A Claude Project with a persona-tuned system prompt and few-shot examples trained on my own writing. Drafts cold outreach, professor emails, internship follow-ups, and alumni coffee chat requests — in my voice, under 150 words, in seconds.</p>
+        <div>
+          <span class="tag">Claude Projects</span>
+          <span class="tag">Few-shot Prompting</span>
+          <span class="tag">Voice Matching</span>
+          <span class="tag">System Prompts</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="starter">
+        <div class="project-num">06 —</div>
+        <span class="tier-badge tier-starter">Starter</span>
+        <div class="project-title">Research Summariser</div>
+        <p class="project-desc">Paste any URL or text — McKinsey report, news article, academic paper — and get back a 1-line TLDR, 5 key takeaways with business implications, extracted data points, and a "so what for me" section. Turns a 40-minute read into a 3-minute brief.</p>
+        <div>
+          <span class="tag">Claude Web Search</span>
+          <span class="tag">Deep Research</span>
+          <span class="tag">Structured Extraction</span>
+          <span class="tag">Notion</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">07 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">Startup Idea Validator</div>
+        <p class="project-desc">Input any startup idea. Claude web-searches and returns a one-page investment memo in under 5 minutes: TAM with sources, top 5 competitors with funding, recent VC bets in the space, key risks, and a go/no-go verdict. The same output a junior VC analyst would spend a day producing.</p>
+        <div>
+          <span class="tag">Agentic Prompting</span>
+          <span class="tag">Market Sizing</span>
+          <span class="tag">Web Search</span>
+          <span class="tag">Deep Research</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">08 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">LinkedIn Content Engine</div>
+        <p class="project-desc">A Claude Project trained on my writing voice that converts raw notes or observations into ready-to-post LinkedIn content. Always delivers two versions: one data-driven, one story-driven. Eliminated the blank-page problem — committed to posting weekly for the full MBA.</p>
+        <div>
+          <span class="tag">Claude Projects</span>
+          <span class="tag">Few-shot Prompting</span>
+          <span class="tag">Content Strategy</span>
+          <span class="tag">A/B Output</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">09 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">Excel / Data Analyser</div>
+        <p class="project-desc">Upload any CSV or Excel file and ask questions in plain English — trend analysis, anomaly detection, YoY growth, chart recommendations. Claude also writes reusable Excel formulas on demand. Goes from raw data to board-ready insight without touching a formula manually.</p>
+        <div>
+          <span class="tag">Claude File Upload</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Excel</span>
+          <span class="tag">Insight Extraction</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">10 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">Meeting Notes → Action Items</div>
+        <p class="project-desc">Paste any Zoom or Meet transcript — get back a 3-line executive summary, a decision log, an action items table with owners and deadlines, open questions, and a follow-up email draft ready to send. Being the person who sends the best notes is a compounding reputation advantage.</p>
+        <div>
+          <span class="tag">Long-context Prompting</span>
+          <span class="tag">Structured Extraction</span>
+          <span class="tag">Otter.ai</span>
+          <span class="tag">Output Schema</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">11 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">Apollo + Clay Lead Pipeline</div>
+        <p class="project-desc">Built the same lead generation infrastructure that growth teams at Series B startups pay $5k/month for — in an afternoon. Defined an ICP, surfaced 50+ companies in Apollo, enriched each with funding stage, tech stack, LinkedIn, and hiring signals in Clay. Output: a qualified GTM asset ready to activate.</p>
+        <div>
+          <span class="tag">Apollo.io</span>
+          <span class="tag">Clay</span>
+          <span class="tag">ICP Definition</span>
+          <span class="tag">Data Enrichment</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">12 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">Personalised Outreach at Scale</div>
+        <p class="project-desc">Extended the Clay pipeline with a Claude AI column that reads each lead's LinkedIn headline and recent company news to write a unique 3-line cold email per lead. 50 personalised emails generated in 20 minutes — what a sales team would spend a week on.</p>
+        <div>
+          <span class="tag">Clay AI Columns</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">Prompt Templating</span>
+          <span class="tag">Cold Email</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="builder">
+        <div class="project-num">13 —</div>
+        <span class="tier-badge tier-builder">Builder</span>
+        <div class="project-title">n8n Automation: Gmail → Notion</div>
+        <p class="project-desc">An n8n workflow that triggers on emails flagged as internship or opportunity leads, uses Claude to extract company, contact, and key details, then auto-saves to a structured Notion table. Zero manual tracking — every opportunity logged the moment it arrives.</p>
+        <div>
+          <span class="tag">n8n</span>
+          <span class="tag">Gmail</span>
+          <span class="tag">Notion API</span>
+          <span class="tag">Claude API</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="power">
+        <div class="project-num">14 —</div>
+        <span class="tier-badge tier-power">Power User</span>
+        <div class="project-title">Personal Intelligence Dashboard</div>
+        <p class="project-desc">Claude Code built a live HTML/JS dashboard deployed on Vercel, connected to Gmail and Calendar via MCP — top 5 emails, next 48 hours of meetings, and 3 AI-generated priority tasks, refreshed on demand. A personal AI command centre, built without a backend.</p>
+        <div>
+          <span class="tag">Claude Code</span>
+          <span class="tag">MCP</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">Async JS</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="power">
+        <div class="project-num">15 —</div>
+        <span class="tier-badge tier-power">Power User</span>
+        <div class="project-title">Competitor Tracker</div>
+        <p class="project-desc">Scheduled n8n workflow that runs every Monday at 8 AM: pulls a week of news for 10 tracked companies via NewsAPI, Claude summarises what changed — new hires, launches, funding rounds — and delivers a formatted digest to my inbox. Passive competitive intelligence at zero active time.</p>
+        <div>
+          <span class="tag">n8n</span>
+          <span class="tag">NewsAPI</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">Scheduled Triggers</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="power">
+        <div class="project-num">16 —</div>
+        <span class="tier-badge tier-power">Power User</span>
+        <div class="project-title">Resume & JD Matcher</div>
+        <p class="project-desc">Upload any job description alongside my resume — Claude returns a match score out of 100, missing ATS keywords, bullet-by-bullet rewrite suggestions, and a fully tailored resume version. A distinct edge in placement season when applying to dozens of roles simultaneously.</p>
+        <div>
+          <span class="tag">Claude File Upload</span>
+          <span class="tag">ATS Optimisation</span>
+          <span class="tag">Comparative Analysis</span>
+          <span class="tag">Iterative Editing</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="power">
+        <div class="project-num">17 —</div>
+        <span class="tier-badge tier-power">Power User</span>
+        <div class="project-title">Investor Research Bot</div>
+        <p class="project-desc">Type any VC firm name — Claude deep-researches and returns a one-pager in 4 minutes: fund size and stage focus, stated thesis in their own words, recent portfolio bets, partner-level interests from blogs and Twitter, and an ideal founder profile. The same prep a banker would spend an afternoon on.</p>
+        <div>
+          <span class="tag">Deep Research</span>
+          <span class="tag">Web Search</span>
+          <span class="tag">Source Triangulation</span>
+          <span class="tag">Notion</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="power">
+        <div class="project-num">18 —</div>
+        <span class="tier-badge tier-power">Power User</span>
+        <div class="project-title">Notion AI Knowledge Base</div>
+        <p class="project-desc">Built a structured Notion second brain — Notes, Frameworks, Contacts, Opportunities — connected to Claude via MCP. Ask "What did I write on Porter's Five Forces?" and Claude retrieves it instantly from real class notes. Knowledge compounds instead of being forgotten.</p>
+        <div>
+          <span class="tag">Notion MCP</span>
+          <span class="tag">RAG Concept</span>
+          <span class="tag">Knowledge Architecture</span>
+          <span class="tag">Claude Projects</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="pro">
+        <div class="project-num">19 —</div>
+        <span class="tier-badge tier-pro">Pro</span>
+        <div class="project-title">AI-Powered Pitch Deck Builder</div>
+        <p class="project-desc">Input a startup brief — problem, solution, market, model, ask — and Claude outputs a complete 10-slide investor deck: slide titles, one-line messages, supporting data points, and visual recommendations per slide. Then formatted into a designed deck via Claude in PowerPoint.</p>
+        <div>
+          <span class="tag">Claude in PowerPoint</span>
+          <span class="tag">Investor Narrative</span>
+          <span class="tag">TAM/SAM/SOM</span>
+          <span class="tag">Storytelling</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+      <div class="project-card" data-tier="pro">
+        <div class="project-num">20 —</div>
+        <span class="tier-badge tier-pro">Pro</span>
+        <div class="project-title">Full GTM System — End to End</div>
+        <p class="project-desc">The capstone. ICP definition → Apollo lead sourcing (100 companies) → Clay enrichment with all signals → Claude writing a personalised email per lead → n8n automating the send via Gmail → tracking sheet logging opens, replies, and outcomes. A complete, functioning sales system built by a commerce student in 2 weeks.</p>
+        <div>
+          <span class="tag">Apollo</span>
+          <span class="tag">Clay</span>
+          <span class="tag">n8n</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">Gmail</span>
+          <span class="tag">Google Sheets</span>
+        </div>
+        <div class="card-footer"><span class="in-progress">In progress — output ships soon</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STACK -->
   <section id="skills">
-    <div class="section-label">What I'm building with</div>
-    <h2>Skills & Tools</h2>
+    <div class="section-label">Tools & Capabilities</div>
+    <h2>The Stack</h2>
     <div class="skills-grid">
       <div class="skill-item">
         <span class="skill-icon">🤖</span>
@@ -417,310 +818,20 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label">What I've built</div>
-    <h2>AI Projects</h2>
-
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
-      <button class="filter-btn" onclick="filterProjects('starter', this)">Starter</button>
-      <button class="filter-btn" onclick="filterProjects('builder', this)">Builder</button>
-      <button class="filter-btn" onclick="filterProjects('power', this)">Power User</button>
-      <button class="filter-btn" onclick="filterProjects('pro', this)">Pro</button>
-    </div>
-
-    <div class="projects-grid">
-
-      <div class="project-card" data-tier="starter">
-        <div class="project-num">02 —</div>
-        <span class="tier-badge">Starter</span>
-        <div class="project-title">Morning Briefing Bot</div>
-        <p class="project-desc">Connected Claude to Gmail and Google Calendar via MCP to generate a daily action plan each morning — surfacing priority emails with suggested replies, meeting prep notes, and ranked tasks. On 4 June 2026, it flagged a hard 5 PM Moodle deadline, a 6 PM math class on functions, and a critical Google account security alert — all before 8 AM.</p>
-        <div>
-          <span class="tag">Claude MCP</span>
-          <span class="tag">Gmail</span>
-          <span class="tag">Google Calendar</span>
-          <span class="tag">Prompt Design</span>
-        </div>
-        <div class="card-footer">
-          <a href="morning_briefing_june4.pdf" target="_blank" class="view-output">↗ View Output — 4 Jun 2026</a>
-        </div>
-      </div>
-
-      <div class="project-card" data-tier="starter">
-        <div class="project-num">03 —</div>
-        <span class="tier-badge">Starter</span>
-        <div class="project-title">Personal Website</div>
-        <p class="project-desc">Used Claude Code to build this very site — zero manual coding. Prompted the full layout, refined the design iteratively, then deployed via GitHub and Vercel. Learned the complete developer workflow: write, commit, push, deploy.</p>
-        <div>
-          <span class="tag">Claude Code</span>
-          <span class="tag">GitHub</span>
-          <span class="tag">Vercel</span>
-          <span class="tag">HTML/CSS</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output: this site</span></div>
-      </div>
-
-      <div class="project-card" data-tier="starter">
-        <div class="project-num">04 —</div>
-        <span class="tier-badge">Starter</span>
-        <div class="project-title">MBA Case Study Analyst</div>
-        <p class="project-desc">Built a Claude Project that uploads any HBS or ISB case PDF and outputs a structured analysis: problem statement, stakeholder map, three strategic options, quantitative breakdown, and a final recommendation — in under 2 minutes.</p>
-        <div>
-          <span class="tag">Claude Projects</span>
-          <span class="tag">PDF Upload</span>
-          <span class="tag">Consulting Frameworks</span>
-          <span class="tag">MECE</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="starter">
-        <div class="project-num">05 —</div>
-        <span class="tier-badge">Starter</span>
-        <div class="project-title">Email Drafting Assistant</div>
-        <p class="project-desc">Designed a Claude Project with a persona-tuned system prompt and few-shot examples from my own writing. Drafts cold outreach, follow-ups, professor emails, and alumni coffee chat requests in my voice — under 150 words, every time.</p>
-        <div>
-          <span class="tag">Claude Projects</span>
-          <span class="tag">Few-shot Prompting</span>
-          <span class="tag">Voice Matching</span>
-          <span class="tag">System Prompts</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="starter">
-        <div class="project-num">06 —</div>
-        <span class="tier-badge">Starter</span>
-        <div class="project-title">Research Summariser</div>
-        <p class="project-desc">A prompt pipeline that takes any article URL or text — McKinsey reports, news, academic papers — and returns a 1-line TLDR, 5 key takeaways with business implications, extracted data points, and a personalised "so what" section.</p>
-        <div>
-          <span class="tag">Claude Web Search</span>
-          <span class="tag">Deep Research</span>
-          <span class="tag">Structured Extraction</span>
-          <span class="tag">Notion</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">07 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">Startup Idea Validator</div>
-        <p class="project-desc">An agentic research prompt that takes any startup idea and outputs a one-page investment memo: TAM with sources, top 5 competitors with funding, recent VC activity, key risks, and a verdict — in under 5 minutes.</p>
-        <div>
-          <span class="tag">Agentic Prompting</span>
-          <span class="tag">Market Sizing</span>
-          <span class="tag">Web Search</span>
-          <span class="tag">Deep Research</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">08 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">LinkedIn Content Engine</div>
-        <p class="project-desc">A Claude Project tuned to my writing voice that converts raw notes or observations into ready-to-post LinkedIn content — always producing two versions: one data-driven, one story-driven. Eliminated the blank-page problem entirely.</p>
-        <div>
-          <span class="tag">Claude Projects</span>
-          <span class="tag">Few-shot Prompting</span>
-          <span class="tag">Content Strategy</span>
-          <span class="tag">A/B Output</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">09 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">Excel / Data Analyser</div>
-        <p class="project-desc">Uploaded CSV and Excel datasets to Claude and queried them in plain English — trend analysis, anomaly detection, YoY growth, and auto-generated chart recommendations. Also had Claude write reusable Excel formulas for repeat calculations.</p>
-        <div>
-          <span class="tag">Claude File Upload</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">Excel</span>
-          <span class="tag">Insight Extraction</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">10 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">Meeting Notes → Action Items</div>
-        <p class="project-desc">A Claude Project that converts any Zoom or Meet transcript into a 3-line executive summary, decision log, action items table with owners and deadlines, open questions, and a ready-to-send follow-up email draft.</p>
-        <div>
-          <span class="tag">Long-context Prompting</span>
-          <span class="tag">Structured Extraction</span>
-          <span class="tag">Otter.ai</span>
-          <span class="tag">Output Schema</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">11 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">Apollo + Clay Lead Pipeline</div>
-        <p class="project-desc">Defined an ICP (Series A SaaS startups, 50–200 employees), used Apollo to surface 50+ matching companies, then enriched each in Clay with LinkedIn, funding stage, tech stack, and recent news — producing a qualified GTM asset from scratch.</p>
-        <div>
-          <span class="tag">Apollo.io</span>
-          <span class="tag">Clay</span>
-          <span class="tag">ICP Definition</span>
-          <span class="tag">Data Enrichment</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">12 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">Personalised Outreach at Scale</div>
-        <p class="project-desc">Extended the Clay pipeline with a Claude AI column that reads each lead's LinkedIn headline and recent company news to write a unique 3-line cold email per lead. 50 personalised emails generated in 20 minutes using prompt templating with variables.</p>
-        <div>
-          <span class="tag">Clay AI Columns</span>
-          <span class="tag">Claude API</span>
-          <span class="tag">Prompt Templating</span>
-          <span class="tag">Cold Email</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="builder">
-        <div class="project-num">13 —</div>
-        <span class="tier-badge">Builder</span>
-        <div class="project-title">n8n Automation: Gmail → Notion</div>
-        <p class="project-desc">An n8n workflow that triggers on emails containing "internship", "opportunity", or "offer", uses Claude to extract company name, contact, and key details, then auto-saves everything to a structured Notion table — zero manual tracking.</p>
-        <div>
-          <span class="tag">n8n</span>
-          <span class="tag">Gmail</span>
-          <span class="tag">Notion API</span>
-          <span class="tag">Claude API</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="power">
-        <div class="project-num">14 —</div>
-        <span class="tier-badge">Power User</span>
-        <div class="project-title">Personal Intelligence Dashboard</div>
-        <p class="project-desc">Claude Code built a live HTML/JS dashboard deployed on Vercel that connects to Gmail and Calendar via MCP — displaying top 5 emails, next 48 hours of meetings, and 3 AI-generated priority tasks. A personal AI command centre, refreshed on demand.</p>
-        <div>
-          <span class="tag">Claude Code</span>
-          <span class="tag">MCP</span>
-          <span class="tag">Vercel</span>
-          <span class="tag">Async JS</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="power">
-        <div class="project-num">15 —</div>
-        <span class="tier-badge">Power User</span>
-        <div class="project-title">Competitor Tracker</div>
-        <p class="project-desc">n8n workflow running every Monday at 8 AM: pulls news for 10 tracked companies via NewsAPI, Claude summarises changes (new hires, launches, funding), and sends a formatted weekly digest email — passive competitive intelligence at zero active time.</p>
-        <div>
-          <span class="tag">n8n</span>
-          <span class="tag">NewsAPI</span>
-          <span class="tag">Claude API</span>
-          <span class="tag">Scheduled Triggers</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="power">
-        <div class="project-num">16 —</div>
-        <span class="tier-badge">Power User</span>
-        <div class="project-title">Resume & JD Matcher</div>
-        <p class="project-desc">Upload any job description alongside my resume — Claude outputs a match score out of 100, missing ATS keywords, bullet-by-bullet rewrite suggestions, and a fully tailored resume version. Used across every placement application during recruiting season.</p>
-        <div>
-          <span class="tag">Claude File Upload</span>
-          <span class="tag">ATS Optimisation</span>
-          <span class="tag">Comparative Analysis</span>
-          <span class="tag">Iterative Editing</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="power">
-        <div class="project-num">17 —</div>
-        <span class="tier-badge">Power User</span>
-        <div class="project-title">Investor Research Bot</div>
-        <p class="project-desc">Agentic Claude prompt that deep-researches any VC firm: fund size, stated thesis, portfolio companies, recent investments, partner-level interests from tweets and blogs, and an inferred founder fit profile — a one-pager in 4 minutes, verified against Crunchbase.</p>
-        <div>
-          <span class="tag">Deep Research</span>
-          <span class="tag">Web Search</span>
-          <span class="tag">Source Triangulation</span>
-          <span class="tag">Notion</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="power">
-        <div class="project-num">18 —</div>
-        <span class="tier-badge">Power User</span>
-        <div class="project-title">Notion AI Knowledge Base</div>
-        <p class="project-desc">A second-brain Notion workspace (Notes, Frameworks, Contacts, Opportunities) connected to Claude via MCP. Claude retrieves from my own notes on demand — class frameworks, case summaries, and contact notes — answered instantly.</p>
-        <div>
-          <span class="tag">Notion MCP</span>
-          <span class="tag">RAG Concept</span>
-          <span class="tag">Knowledge Architecture</span>
-          <span class="tag">Claude Projects</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="pro">
-        <div class="project-num">19 —</div>
-        <span class="tier-badge">Pro</span>
-        <div class="project-title">AI-Powered Pitch Deck Builder</div>
-        <p class="project-desc">Input a startup brief — Claude outputs a complete 10-slide investor deck structure with slide titles, key messages, supporting data, and visual recommendations. Formatted into a designed deck via Claude in PowerPoint.</p>
-        <div>
-          <span class="tag">Claude in PowerPoint</span>
-          <span class="tag">Investor Narrative</span>
-          <span class="tag">TAM/SAM/SOM</span>
-          <span class="tag">Storytelling</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-      <div class="project-card" data-tier="pro">
-        <div class="project-num">20 —</div>
-        <span class="tier-badge">Pro</span>
-        <div class="project-title">Full GTM System — End to End</div>
-        <p class="project-desc">Capstone: defined an ICP, sourced 100 leads in Apollo, enriched in Clay, had Claude write personalised emails per lead, and automated the send via n8n — with a tracking sheet logging opens, replies, and outcomes. A functioning sales system, built in 2 weeks.</p>
-        <div>
-          <span class="tag">Apollo</span>
-          <span class="tag">Clay</span>
-          <span class="tag">n8n</span>
-          <span class="tag">Claude API</span>
-          <span class="tag">Gmail</span>
-          <span class="tag">Google Sheets</span>
-        </div>
-        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrap">
-      <h3>Let's Connect</h3>
-      <p>Strategy, AI, GTM, or MBA conversations — always happy to chat.</p>
-      <div class="contact-links">
-        <a href="mailto:ajmera.yash22@gmail.com" class="contact-link">✉️ Email</a>
-        <a href="https://github.com/YashAjmeraa/hello-people" target="_blank" class="contact-link">🐙 GitHub</a>
-        <a href="https://www.linkedin.com/in/yash-ajmera-731416185" target="_blank" class="contact-link">💼 LinkedIn</a>
-        <a href="tel:+918286663650" class="contact-link">📞 +91 82866 63650</a>
-      </div>
+  <div class="contact-section" id="contact">
+    <h3>Let's Connect</h3>
+    <p>Open to conversations about consulting, VC, PE, and operator roles at high-growth companies. Currently at IIM Ahmedabad — available from placement season 2027.</p>
+    <div class="contact-links">
+      <a href="mailto:ajmera.yash22@gmail.com" class="contact-link">✉️ Email</a>
+      <a href="https://github.com/YashAjmeraa/hello-people" target="_blank" class="contact-link">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/yash-ajmera-731416185" target="_blank" class="contact-link">💼 LinkedIn</a>
+      <a href="tel:+918286663650" class="contact-link">📞 +91 82866 63650</a>
     </div>
-  </section>
+  </div>
 
   <footer>
-    Built by <span>Yash Ajmera</span> · IIM Ahmedabad · 2026–28 · Hosted on GitHub Pages
+    <span>19 projects. Built in real time. Last updated June 2026.</span>
   </footer>
 
   <script>
