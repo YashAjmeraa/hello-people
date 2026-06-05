@@ -9,35 +9,23 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0d0d0d;
-      --surface: #161616;
-      --border: #2a2a2a;
-      --accent: #c8f04f;
-      --text: #e8e8e8;
-      --muted: #777;
-      --card-bg: #131313;
+      --navy:  #0a1628;
+      --slate: #3a4a6b;
+      --muted: #8892a4;
+      --line:  #dde2ea;
+      --light: #f4f6f9;
+      --white: #ffffff;
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--white);
+      color: var(--navy);
       font-family: 'DM Sans', sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(200,240,79,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,240,79,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -45,332 +33,309 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 4rem;
-      background: rgba(13,13,13,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 4rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
     }
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--accent);
+      font-size: 1.35rem;
+      color: var(--navy);
       letter-spacing: -0.5px;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2.5rem;
-    }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
 
     nav a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 500;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
       transition: color 0.2s;
     }
 
-    nav a:hover { color: var(--accent); }
+    nav a:hover { color: var(--navy); }
 
+    /* HERO */
     .hero {
-      position: relative;
-      z-index: 1;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 4rem;
-      max-width: 900px;
+      background: var(--navy);
+      padding: 7rem 4rem 6rem;
     }
+
+    .hero-inner { max-width: 760px; }
 
     .hero-tag {
       display: inline-block;
-      background: rgba(200,240,79,0.1);
-      border: 1px solid rgba(200,240,79,0.25);
-      color: var(--accent);
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
       margin-bottom: 2rem;
-      animation: fadeUp 0.6s ease both;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      line-height: 1.05;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.06;
       letter-spacing: -2px;
+      color: var(--white);
       margin-bottom: 1.5rem;
-      animation: fadeUp 0.7s ease 0.1s both;
     }
 
-    h1 span { color: var(--accent); }
+    h1 span { color: rgba(255,255,255,0.45); }
 
     .hero-desc {
-      font-size: 1.1rem;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 560px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      max-width: 540px;
       font-weight: 300;
       margin-bottom: 2.5rem;
-      animation: fadeUp 0.7s ease 0.2s both;
     }
 
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      animation: fadeUp 0.7s ease 0.3s both;
-    }
+    .btn-group { display: flex; gap: 1rem; }
 
     .btn {
       display: inline-block;
-      padding: 0.8rem 2rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
       font-weight: 500;
       text-decoration: none;
-      cursor: pointer;
       transition: all 0.2s;
+      letter-spacing: 0.01em;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #0d0d0d;
-      border: 1px solid var(--accent);
-    }
+    .btn-primary { background: var(--white); color: var(--navy); border: 1px solid var(--white); }
+    .btn-primary:hover { background: transparent; color: var(--white); }
 
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--accent);
-    }
+    .btn-outline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.25); }
+    .btn-outline:hover { border-color: var(--white); color: var(--white); }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
+    /* SECTIONS */
     section {
-      position: relative;
-      z-index: 1;
       padding: 5rem 4rem;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
     }
 
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
       letter-spacing: -1px;
+      color: var(--navy);
       margin-bottom: 3rem;
     }
 
     /* SKILLS */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px;
-      border: 1px solid var(--border);
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      border: 1px solid var(--line);
     }
 
     .skill-item {
-      background: var(--card-bg);
       padding: 1.5rem;
-      transition: background 0.2s;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s, color 0.2s;
+      cursor: default;
     }
 
-    .skill-item:hover { background: var(--surface); }
-    .skill-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-
-    .skill-name {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 0.3rem;
+    .skill-item:hover {
+      background: var(--navy);
     }
 
-    .skill-level {
-      font-size: 0.75rem;
-      color: var(--muted);
+    .skill-item:hover .skill-icon,
+    .skill-item:hover .skill-name,
+    .skill-item:hover .skill-level {
+      color: var(--white);
     }
 
-    /* TIER FILTER */
-    .filter-bar {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-    }
+    .skill-icon { font-size: 1.4rem; margin-bottom: 0.75rem; display: block; }
+    .skill-name { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; transition: color 0.2s; }
+    .skill-level { font-size: 0.72rem; color: var(--muted); transition: color 0.2s; }
+
+    /* FILTER */
+    .filter-bar { display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
 
     .filter-btn {
       background: transparent;
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       color: var(--muted);
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
+      font-size: 0.78rem;
+      padding: 0.38rem 1rem;
+      border-radius: 4px;
       cursor: pointer;
       transition: all 0.2s;
+      letter-spacing: 0.02em;
     }
 
     .filter-btn:hover,
     .filter-btn.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(200,240,79,0.07);
+      border-color: var(--navy);
+      color: var(--navy);
+      background: var(--light);
     }
 
     /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
       padding: 1.75rem;
-      transition: border-color 0.2s, transform 0.2s, opacity 0.3s;
+      transition: border-color 0.2s;
+      display: flex;
+      flex-direction: column;
     }
 
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .project-card.hidden {
-      display: none;
-    }
+    .project-card:hover { border-color: var(--slate); }
+    .project-card.hidden { display: none; }
 
     .project-num {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
     }
 
     .tier-badge {
       display: inline-block;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
+      padding: 0.18rem 0.55rem;
       border-radius: 4px;
       margin-bottom: 0.85rem;
       font-weight: 500;
+      border: 1px solid var(--line);
+      color: var(--muted);
     }
-
-    .tier-starter  { background: rgba(100,180,255,0.12); color: #64b4ff; border: 1px solid rgba(100,180,255,0.25); }
-    .tier-builder  { background: rgba(255,180,80,0.12);  color: #ffb450; border: 1px solid rgba(255,180,80,0.25); }
-    .tier-power    { background: rgba(200,240,79,0.12);  color: #c8f04f; border: 1px solid rgba(200,240,79,0.25); }
-    .tier-pro      { background: rgba(200,100,255,0.12); color: #c864ff; border: 1px solid rgba(200,100,255,0.25); }
 
     .project-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      margin-bottom: 0.65rem;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
     }
 
     .project-desc {
       font-size: 0.875rem;
-      color: var(--muted);
+      color: var(--slate);
       line-height: 1.65;
       margin-bottom: 1.25rem;
+      flex: 1;
     }
 
     .tag {
       display: inline-block;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.6rem;
+      font-size: 0.68rem;
+      padding: 0.22rem 0.55rem;
       border-radius: 4px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       color: var(--muted);
-      margin: 0.2rem 0.2rem 0 0;
+      margin: 0.18rem 0.18rem 0 0;
     }
 
-    /* CONTACT */
-    .contact-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 3rem;
-      text-align: center;
+    .card-footer {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
     }
 
-    .contact-box h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-link {
+    .view-output {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
       text-decoration: none;
-      color: var(--muted);
-      font-size: 0.875rem;
-      border: 1px solid var(--border);
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+      border: 1px solid var(--navy);
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
       transition: all 0.2s;
     }
 
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    .view-output:hover {
+      background: var(--navy);
+      color: var(--white);
     }
 
+    .coming-soon {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 3.5rem;
+      text-align: center;
+    }
+
+    .contact-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-wrap p { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .contact-link {
+      text-decoration: none;
+      color: var(--slate);
+      font-size: 0.875rem;
+      border: 1px solid var(--line);
+      padding: 0.55rem 1.1rem;
+      border-radius: 4px;
+      background: var(--white);
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* FOOTER */
     footer {
-      position: relative;
-      z-index: 1;
       text-align: center;
       padding: 2rem 4rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
+      background: var(--white);
     }
 
-    footer span { color: var(--accent); }
+    footer span { color: var(--navy); font-weight: 500; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
+    /* RESPONSIVE */
     @media (max-width: 700px) {
       nav { padding: 1rem 1.5rem; }
       nav ul { gap: 1.2rem; }
-      .hero, section { padding: 3rem 1.5rem; }
+      .hero { padding: 4rem 1.5rem 3.5rem; }
+      section { padding: 3rem 1.5rem; }
       footer { padding: 2rem 1.5rem; }
     }
   </style>
@@ -378,7 +343,7 @@
 <body>
 
   <nav>
-    <div class="logo">YA.</div>
+    <div class="logo">Yash Ajmera.</div>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -389,16 +354,18 @@
 
   <!-- HERO -->
   <div class="hero" id="about">
-    <div class="hero-tag">✦ AI Upskilling Portfolio</div>
-    <h1>Hello, I'm<br/><span>Yash Ajmera</span></h1>
-    <p class="hero-desc">
-      Strategy & Sales Ops professional at HighRadius, ex-BCG consultant, and aspiring MBA candidate.
-      This portfolio documents my hands-on AI upskilling journey — 19 real projects spanning automation,
-      GTM pipelines, AI-powered tools, and full-stack deployments.
-    </p>
-    <div class="btn-group">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    <div class="hero-inner">
+      <div class="hero-tag">✦ AI Upskilling Portfolio</div>
+      <h1>Ex-BCG. Ex-HighRadius.<br/><span>Now building at IIM Ahmedabad.</span></h1>
+      <p class="hero-desc">
+        Strategy consultant turned B2B SaaS operator, now an MBA student at IIM Ahmedabad.
+        This portfolio documents a 20-project AI upskilling journey — spanning automation,
+        GTM pipelines, intelligent tools, and full-stack deployments. Built in real time, one project at a time.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
     </div>
   </div>
 
@@ -408,42 +375,42 @@
     <h2>Skills & Tools</h2>
     <div class="skills-grid">
       <div class="skill-item">
-        <div class="skill-icon">🤖</div>
+        <span class="skill-icon">🤖</span>
         <div class="skill-name">Claude AI</div>
         <div class="skill-level">MCP · Projects · API</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">⚙️</div>
+        <span class="skill-icon">⚙️</span>
         <div class="skill-name">n8n Automation</div>
         <div class="skill-level">Workflows · Webhooks</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🎯</div>
+        <span class="skill-icon">🎯</span>
         <div class="skill-name">Apollo.io</div>
         <div class="skill-level">Lead sourcing · ICP filters</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🧱</div>
+        <span class="skill-icon">🧱</span>
         <div class="skill-name">Clay</div>
-        <div class="skill-level">Data enrichment · AI columns</div>
+        <div class="skill-level">Enrichment · AI columns</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🌐</div>
+        <span class="skill-icon">🌐</span>
         <div class="skill-name">HTML · CSS · JS</div>
         <div class="skill-level">Frontend basics</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🐙</div>
+        <span class="skill-icon">🐙</span>
         <div class="skill-name">Git & GitHub</div>
         <div class="skill-level">Version control · Repos</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🚀</div>
+        <span class="skill-icon">🚀</span>
         <div class="skill-name">Vercel</div>
         <div class="skill-level">Deployment · CI/CD</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">📋</div>
+        <span class="skill-icon">📋</span>
         <div class="skill-name">Notion</div>
         <div class="skill-level">Knowledge base · MCP</div>
       </div>
@@ -467,20 +434,23 @@
 
       <div class="project-card" data-tier="starter">
         <div class="project-num">02 —</div>
-        <span class="tier-badge tier-starter">Starter</span>
+        <span class="tier-badge">Starter</span>
         <div class="project-title">Morning Briefing Bot</div>
-        <p class="project-desc">Connected Claude to Gmail and Google Calendar via MCP. Built a daily prompt that surfaces the top 5 emails needing a reply, meeting prep notes for each event, and 3 ranked priority tasks — saving 30–45 minutes every morning.</p>
+        <p class="project-desc">Connected Claude to Gmail and Google Calendar via MCP to generate a daily action plan each morning — surfacing priority emails with suggested replies, meeting prep notes, and ranked tasks. On 4 June 2026, it flagged a hard 5 PM Moodle deadline, a 6 PM math class on functions, and a critical Google account security alert — all before 8 AM.</p>
         <div>
           <span class="tag">Claude MCP</span>
           <span class="tag">Gmail</span>
           <span class="tag">Google Calendar</span>
           <span class="tag">Prompt Design</span>
         </div>
+        <div class="card-footer">
+          <a href="morning_briefing_june4.pdf" target="_blank" class="view-output">↗ View Output — 4 Jun 2026</a>
+        </div>
       </div>
 
       <div class="project-card" data-tier="starter">
         <div class="project-num">03 —</div>
-        <span class="tier-badge tier-starter">Starter</span>
+        <span class="tier-badge">Starter</span>
         <div class="project-title">Personal Website</div>
         <p class="project-desc">Used Claude Code to build this very site — zero manual coding. Prompted the full layout, refined the design iteratively, then deployed via GitHub and Vercel. Learned the complete developer workflow: write, commit, push, deploy.</p>
         <div>
@@ -489,11 +459,12 @@
           <span class="tag">Vercel</span>
           <span class="tag">HTML/CSS</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output: this site</span></div>
       </div>
 
       <div class="project-card" data-tier="starter">
         <div class="project-num">04 —</div>
-        <span class="tier-badge tier-starter">Starter</span>
+        <span class="tier-badge">Starter</span>
         <div class="project-title">MBA Case Study Analyst</div>
         <p class="project-desc">Built a Claude Project that uploads any HBS or ISB case PDF and outputs a structured analysis: problem statement, stakeholder map, three strategic options, quantitative breakdown, and a final recommendation — in under 2 minutes.</p>
         <div>
@@ -502,11 +473,12 @@
           <span class="tag">Consulting Frameworks</span>
           <span class="tag">MECE</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="starter">
         <div class="project-num">05 —</div>
-        <span class="tier-badge tier-starter">Starter</span>
+        <span class="tier-badge">Starter</span>
         <div class="project-title">Email Drafting Assistant</div>
         <p class="project-desc">Designed a Claude Project with a persona-tuned system prompt and few-shot examples from my own writing. Drafts cold outreach, follow-ups, professor emails, and alumni coffee chat requests in my voice — under 150 words, every time.</p>
         <div>
@@ -515,50 +487,54 @@
           <span class="tag">Voice Matching</span>
           <span class="tag">System Prompts</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="starter">
         <div class="project-num">06 —</div>
-        <span class="tier-badge tier-starter">Starter</span>
+        <span class="tier-badge">Starter</span>
         <div class="project-title">Research Summariser</div>
-        <p class="project-desc">Built a prompt pipeline that takes any article URL or text — McKinsey reports, news, academic papers — and returns a 1-line TLDR, 5 key takeaways with implications, extracted data points, and a "so what for me" section.</p>
+        <p class="project-desc">A prompt pipeline that takes any article URL or text — McKinsey reports, news, academic papers — and returns a 1-line TLDR, 5 key takeaways with business implications, extracted data points, and a personalised "so what" section.</p>
         <div>
           <span class="tag">Claude Web Search</span>
           <span class="tag">Deep Research</span>
           <span class="tag">Structured Extraction</span>
           <span class="tag">Notion</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">07 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">Startup Idea Validator</div>
-        <p class="project-desc">Built an agentic research prompt that takes any startup idea and outputs a one-page investment memo: TAM with sources, top 5 competitors with funding, recent VC activity, key risks, and a verdict — in under 5 minutes.</p>
+        <p class="project-desc">An agentic research prompt that takes any startup idea and outputs a one-page investment memo: TAM with sources, top 5 competitors with funding, recent VC activity, key risks, and a verdict — in under 5 minutes.</p>
         <div>
           <span class="tag">Agentic Prompting</span>
           <span class="tag">Market Sizing</span>
           <span class="tag">Web Search</span>
           <span class="tag">Deep Research</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">08 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">LinkedIn Content Engine</div>
-        <p class="project-desc">Created a Claude Project tuned to my writing voice that converts raw notes or observations into ready-to-post LinkedIn content — always producing two versions: one data-driven, one story-driven. Eliminated the blank-page problem entirely.</p>
+        <p class="project-desc">A Claude Project tuned to my writing voice that converts raw notes or observations into ready-to-post LinkedIn content — always producing two versions: one data-driven, one story-driven. Eliminated the blank-page problem entirely.</p>
         <div>
           <span class="tag">Claude Projects</span>
           <span class="tag">Few-shot Prompting</span>
           <span class="tag">Content Strategy</span>
           <span class="tag">A/B Output</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">09 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">Excel / Data Analyser</div>
         <p class="project-desc">Uploaded CSV and Excel datasets to Claude and queried them in plain English — trend analysis, anomaly detection, YoY growth, and auto-generated chart recommendations. Also had Claude write reusable Excel formulas for repeat calculations.</p>
         <div>
@@ -567,24 +543,26 @@
           <span class="tag">Excel</span>
           <span class="tag">Insight Extraction</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">10 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">Meeting Notes → Action Items</div>
-        <p class="project-desc">Built a Claude Project that converts any Zoom or Meet transcript into a 3-line executive summary, decision log, action items table (with owners and deadlines), open questions, and a ready-to-send follow-up email draft.</p>
+        <p class="project-desc">A Claude Project that converts any Zoom or Meet transcript into a 3-line executive summary, decision log, action items table with owners and deadlines, open questions, and a ready-to-send follow-up email draft.</p>
         <div>
           <span class="tag">Long-context Prompting</span>
           <span class="tag">Structured Extraction</span>
           <span class="tag">Otter.ai</span>
           <span class="tag">Output Schema</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">11 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">Apollo + Clay Lead Pipeline</div>
         <p class="project-desc">Defined an ICP (Series A SaaS startups, 50–200 employees), used Apollo to surface 50+ matching companies, then enriched each in Clay with LinkedIn, funding stage, tech stack, and recent news — producing a qualified GTM asset from scratch.</p>
         <div>
@@ -593,11 +571,12 @@
           <span class="tag">ICP Definition</span>
           <span class="tag">Data Enrichment</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">12 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">Personalised Outreach at Scale</div>
         <p class="project-desc">Extended the Clay pipeline with a Claude AI column that reads each lead's LinkedIn headline and recent company news to write a unique 3-line cold email per lead. 50 personalised emails generated in 20 minutes using prompt templating with variables.</p>
         <div>
@@ -606,24 +585,26 @@
           <span class="tag">Prompt Templating</span>
           <span class="tag">Cold Email</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="builder">
         <div class="project-num">13 —</div>
-        <span class="tier-badge tier-builder">Builder</span>
+        <span class="tier-badge">Builder</span>
         <div class="project-title">n8n Automation: Gmail → Notion</div>
-        <p class="project-desc">Built an n8n workflow that triggers on emails containing "internship", "opportunity", or "offer", uses Claude to extract company name, contact, and key details, then auto-saves everything to a structured Notion table — zero manual tracking.</p>
+        <p class="project-desc">An n8n workflow that triggers on emails containing "internship", "opportunity", or "offer", uses Claude to extract company name, contact, and key details, then auto-saves everything to a structured Notion table — zero manual tracking.</p>
         <div>
           <span class="tag">n8n</span>
           <span class="tag">Gmail</span>
           <span class="tag">Notion API</span>
           <span class="tag">Claude API</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="power">
         <div class="project-num">14 —</div>
-        <span class="tier-badge tier-power">Power User</span>
+        <span class="tier-badge">Power User</span>
         <div class="project-title">Personal Intelligence Dashboard</div>
         <p class="project-desc">Claude Code built a live HTML/JS dashboard deployed on Vercel that connects to Gmail and Calendar via MCP — displaying top 5 emails, next 48 hours of meetings, and 3 AI-generated priority tasks. A personal AI command centre, refreshed on demand.</p>
         <div>
@@ -632,24 +613,26 @@
           <span class="tag">Vercel</span>
           <span class="tag">Async JS</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="power">
         <div class="project-num">15 —</div>
-        <span class="tier-badge tier-power">Power User</span>
+        <span class="tier-badge">Power User</span>
         <div class="project-title">Competitor Tracker</div>
-        <p class="project-desc">n8n workflow that runs every Monday at 8 AM: pulls news for 10 tracked companies via NewsAPI, Claude summarises what changed (new hires, launches, funding), and sends a formatted weekly digest email — passive competitive intelligence at zero active time.</p>
+        <p class="project-desc">n8n workflow running every Monday at 8 AM: pulls news for 10 tracked companies via NewsAPI, Claude summarises changes (new hires, launches, funding), and sends a formatted weekly digest email — passive competitive intelligence at zero active time.</p>
         <div>
           <span class="tag">n8n</span>
           <span class="tag">NewsAPI</span>
           <span class="tag">Claude API</span>
           <span class="tag">Scheduled Triggers</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="power">
         <div class="project-num">16 —</div>
-        <span class="tier-badge tier-power">Power User</span>
+        <span class="tier-badge">Power User</span>
         <div class="project-title">Resume & JD Matcher</div>
         <p class="project-desc">Upload any job description alongside my resume — Claude outputs a match score out of 100, missing ATS keywords, bullet-by-bullet rewrite suggestions, and a fully tailored resume version. Used across every placement application during recruiting season.</p>
         <div>
@@ -658,11 +641,12 @@
           <span class="tag">Comparative Analysis</span>
           <span class="tag">Iterative Editing</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="power">
         <div class="project-num">17 —</div>
-        <span class="tier-badge tier-power">Power User</span>
+        <span class="tier-badge">Power User</span>
         <div class="project-title">Investor Research Bot</div>
         <p class="project-desc">Agentic Claude prompt that deep-researches any VC firm: fund size, stated thesis, portfolio companies, recent investments, partner-level interests from tweets and blogs, and an inferred founder fit profile — a one-pager in 4 minutes, verified against Crunchbase.</p>
         <div>
@@ -671,37 +655,40 @@
           <span class="tag">Source Triangulation</span>
           <span class="tag">Notion</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="power">
         <div class="project-num">18 —</div>
-        <span class="tier-badge tier-power">Power User</span>
+        <span class="tier-badge">Power User</span>
         <div class="project-title">Notion AI Knowledge Base</div>
-        <p class="project-desc">Built a second-brain Notion workspace (Notes, Frameworks, Contacts, Opportunities) connected to Claude via MCP. Claude retrieves from my own notes on demand — "What did I write on Porter's Five Forces?" answered instantly from real class notes.</p>
+        <p class="project-desc">A second-brain Notion workspace (Notes, Frameworks, Contacts, Opportunities) connected to Claude via MCP. Claude retrieves from my own notes on demand — class frameworks, case summaries, and contact notes — answered instantly.</p>
         <div>
           <span class="tag">Notion MCP</span>
           <span class="tag">RAG Concept</span>
           <span class="tag">Knowledge Architecture</span>
           <span class="tag">Claude Projects</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="pro">
         <div class="project-num">19 —</div>
-        <span class="tier-badge tier-pro">Pro</span>
+        <span class="tier-badge">Pro</span>
         <div class="project-title">AI-Powered Pitch Deck Builder</div>
-        <p class="project-desc">Input a startup brief (problem, solution, market, model, ask) — Claude outputs a complete 10-slide investor deck structure with slide titles, key messages, supporting data points, and visual recommendations. Formatted into a designed deck via Claude in PowerPoint.</p>
+        <p class="project-desc">Input a startup brief — Claude outputs a complete 10-slide investor deck structure with slide titles, key messages, supporting data, and visual recommendations. Formatted into a designed deck via Claude in PowerPoint.</p>
         <div>
           <span class="tag">Claude in PowerPoint</span>
           <span class="tag">Investor Narrative</span>
           <span class="tag">TAM/SAM/SOM</span>
           <span class="tag">Storytelling</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
       <div class="project-card" data-tier="pro">
         <div class="project-num">20 —</div>
-        <span class="tier-badge tier-pro">Pro</span>
+        <span class="tier-badge">Pro</span>
         <div class="project-title">Full GTM System — End to End</div>
         <p class="project-desc">Capstone: defined an ICP, sourced 100 leads in Apollo, enriched in Clay, had Claude write personalised emails per lead, and automated the send via n8n — with a tracking sheet logging opens, replies, and outcomes. A functioning sales system, built in 2 weeks.</p>
         <div>
@@ -712,6 +699,7 @@
           <span class="tag">Gmail</span>
           <span class="tag">Google Sheets</span>
         </div>
+        <div class="card-footer"><span class="coming-soon">Output coming soon</span></div>
       </div>
 
     </div>
@@ -719,7 +707,7 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-box">
+    <div class="contact-wrap">
       <h3>Let's Connect</h3>
       <p>Strategy, AI, GTM, or MBA conversations — always happy to chat.</p>
       <div class="contact-links">
@@ -732,7 +720,7 @@
   </section>
 
   <footer>
-    Built with ♥ by <span>Yash Ajmera</span> · Hosted on GitHub Pages
+    Built by <span>Yash Ajmera</span> · IIM Ahmedabad · 2026–28 · Hosted on GitHub Pages
   </footer>
 
   <script>
@@ -740,11 +728,7 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.project-card').forEach(card => {
-        if (tier === 'all' || card.dataset.tier === tier) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
+        card.classList.toggle('hidden', tier !== 'all' && card.dataset.tier !== tier);
       });
     }
   </script>
